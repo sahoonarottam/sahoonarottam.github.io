@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: sahoonarottam/sahoonarottam   # change to <github-username>/<repo-name>
+  repo: sahoonarottam/sahoonarottam.github.io   # change to <github-username>/<repo-name>
   branch: main
   # base_url is the URL of your OAuth proxy. See README for one-time setup.
   base_url: https://decap-oauth.yourdomain.com
