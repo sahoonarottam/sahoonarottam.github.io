@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writings — Dr. Narottam Sahoo</title>
+  <meta name="description" content="Essays, notes and ideas by Dr. Narottam Sahoo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="intro">
+    <div class="intro-row">
+      <a href="index.html" style="border: 0;">
+        <div class="avatar">
+          <img src="images/portrait/narottam-sahoo.jpg" alt="Dr. Narottam Sahoo" />
+        </div>
+      </a>
+      <div class="intro-text">
+        <h1>Writings</h1>
+        <p class="intro-role">
+          Essays, lecture notes and observations. By
+          <a href="index.html">Dr. Narottam Sahoo</a>.
+        </p>
+        <p class="linkrow">
+          <a href="index.html">← Back to home</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div id="posts" class="writing-list">
+      <div class="loading">Loading writings…</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> Dr. Narottam Sahoo</span>
+    <span>
+      <a href="https://www.linkedin.com/in/narottam-sahoo-58952027/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/narottamsahoo" target="_blank" rel="noopener">Twitter</a> ·
+      <a href="admin/">Admin</a>
+    </span>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/github-api.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (async () => {
+    const el = document.getElementById('posts');
+    try {
+      const posts = await window.BlogAPI.listPosts();
+      if (!posts.length) {
+        el.innerHTML = '<div class="empty">No writings published yet.</div>';
+        return;
+      }
+      el.innerHTML = posts.map((p) => `
+        <a class="writing-item" href="post.html?slug=${encodeURIComponent(p.slug)}">
+          <span class="date">${window.BlogAPI.formatDate(p.date)}</span>
+          <span class="title">${p.title}</span>
+          <div class="excerpt">${p.excerpt}</div>
+        </a>
+      `).join('');
+    } catch (err) {
+      el.innerHTML = '<div class="empty">Could not load writings right now.</div>';
+    }
+  })();
+</script>
+
+</body>
+</html>

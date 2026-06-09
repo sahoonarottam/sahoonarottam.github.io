@@ -1,0 +1,37 @@
+# Decap CMS configuration
+# Docs: https://decapcms.org/docs/
+
+backend:
+  name: github
+  repo: sahoonarottam/sahoonarottam   # change to <github-username>/<repo-name>
+  branch: main
+  # base_url is the URL of your OAuth proxy. See README for one-time setup.
+  base_url: https://decap-oauth.yourdomain.com
+  auth_endpoint: /auth
+
+# Where uploaded images are saved in the repo
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Friendly site URLs shown in the editor preview pane
+site_url: https://sahoonarottam.github.io
+display_url: https://sahoonarottam.github.io
+logo_url: https://sahoonarottam.github.io/images/logo.png
+
+# Single collection: blog posts
+collections:
+  - name: "posts"
+    label: "Writings"
+    label_singular: "Post"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date | date('MMM D, YYYY')}}"
+    sortable_fields: ['date', 'title']
+    editor:
+      preview: true
+    fields:
+      - { label: "Title",   name: "title",   widget: "string" }
+      - { label: "Date",    name: "date",    widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - { label: "Excerpt (one-line summary shown on the blog page)", name: "excerpt", widget: "text", required: false }
+      - { label: "Body",    name: "body",    widget: "markdown" }

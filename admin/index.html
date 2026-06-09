@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Write a post — Dr. Narottam Sahoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Branded splash shown for a brief moment before Decap CMS takes over the page */
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+    #welcome {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    #welcome .inner {
+      max-width: 480px;
+    }
+    #welcome h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 .5rem;
+    }
+    #welcome p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin: 0 0 1.5rem;
+    }
+    #welcome small {
+      color: #6b6b6b;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    #welcome a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #0a66c2;
+      font-size: .85rem;
+      text-decoration: none;
+    }
+    #welcome a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="welcome">
+    <div class="inner">
+      <small>Admin</small>
+      <h1>Loading your writing space…</h1>
+      <p>This is your private space to write, edit and publish new posts. If you
+      are not signed in, you will be prompted to sign in with GitHub in a moment.</p>
+      <a href="../index.html">← Back to the site</a>
+    </div>
+  </div>
+
+  <!-- Decap CMS takes over the page once loaded -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>
