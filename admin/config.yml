@@ -2,7 +2,7 @@
 # Docs: https://decapcms.org/docs/
 
 backend:
-  name: github
+  name: git-gateway
   repo: sahoonarottam/sahoonarottam.github.io
   branch: main
   base_url: https://decap-cms-oauth.vercel.app
